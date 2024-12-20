@@ -14,32 +14,22 @@ def run_quiz():
         "Who painted the Mona Lisa?": ("A) Vincent van Gogh", "B) Pablo Picasso", "C) Leonardo da Vinci", "D) Claude Monet", "C"),
         "What is the largest planet in our solar system?": ("A) Earth", "B) Jupiter", "C) Saturn", "D) Neptune", "B")
     }
-
-    # Randomize the order of questions
     questions = list(quiz.keys())
     random.shuffle(questions)
-
-    # Start the quiz
     score = 0
     for question in questions:
-        options = quiz[question][:-1]  # Extract options
-        correct_answer = quiz[question][-1]  # Extract correct answer
+        options = quiz[question][:-1]  
+        correct_answer = quiz[question][-1]  
 
         print("\n" + question)
         for option in options:
             print(option)
-
-        # Get user's answer
         user_answer = input("Your answer (A, B, C, or D): ").strip().upper()
-
-        # Check if the answer is correct
         if user_answer == correct_answer:
             print("Correct!")
             score += 1
         else:
             print(f"Wrong! The correct answer was {correct_answer}.")
-
-    # Display the final score
     print(f"\nYou scored {score}/{len(quiz)}.")
 
 if __name__ == "__main__":
